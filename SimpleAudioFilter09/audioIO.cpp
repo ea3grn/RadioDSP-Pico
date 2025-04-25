@@ -66,6 +66,8 @@ ADCInput adcIn(26);
 // Over range external led
 #define LED_PIN 12
 
+
+
 // define the maximum safe signal in input
 // the led blink at 1/10 of maximum input level
 // this assures no distorsion or overload.
@@ -490,6 +492,7 @@ void audioIO_setup() {
 
   // Analize LMS denoise 
   initializeLMS(DENOISE, 128, 8);
+
   setLMSParameters(0.05f, 0.999f); 
   doLMS=false;
 

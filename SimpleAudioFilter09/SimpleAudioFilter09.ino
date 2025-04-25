@@ -34,6 +34,15 @@
 //---------------------------------------------------------------------------
 void setup() {
 
+//definimos los leds para indicar el estado
+#define LED_FILTER_1 5  // SSB WIDE
+#define LED_FILTER_2 6  // SSB NARROW
+#define LED_FILTER_3 7  // CW WIDE
+#define LED_FILTER_4 8  // CW NARROW
+
+#define LED_NOISE_1 9   // DNR DENOISE LEVEL 1
+#define LED_NOISE_2 10   // DNR DENOISE LEVEL 2
+
 #ifdef DEBUG_SERIAL 
   Serial.begin(115200);
 #endif  
@@ -42,9 +51,37 @@ void setup() {
   pinMode(23, OUTPUT);
   digitalWrite(23, HIGH);
 
+  gpio_init(LED_FILTER_1);
+  gpio_init(LED_FILTER_2);
+  gpio_init(LED_FILTER_3);
+  gpio_init(LED_FILTER_4);
+  gpio_init(LED_NOISE_1);
+  gpio_init(LED_NOISE_2);
+
+  gpio_set_dir(LED_FILTER_1, GPIO_OUT);
+  gpio_set_dir(LED_FILTER_2, GPIO_OUT);
+  gpio_set_dir(LED_FILTER_3, GPIO_OUT);
+  gpio_set_dir(LED_FILTER_4, GPIO_OUT);
+  gpio_set_dir(LED_NOISE_1, GPIO_OUT);
+  gpio_set_dir(LED_NOISE_2, GPIO_OUT);
+ 
+  // nos aseguramos de que todo los leds esten apagados
+  gpio_put(LED_FILTER_1,0);
+  gpio_put(LED_FILTER_2,0);
+  gpio_put(LED_FILTER_3,0);
+  gpio_put(LED_FILTER_4,0);
+  gpio_put(LED_NOISE_1,0);
+  gpio_put(LED_NOISE_2,0);
+
+
   audioIO_setup();
+
 }
 
+
+  //configuramos GPIO
+
+  
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 void loop(void)

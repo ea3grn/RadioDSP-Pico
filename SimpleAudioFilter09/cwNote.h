@@ -28,6 +28,22 @@ void playTest();
  void  playN2();
  
 
+
+/*
+gpio_init_mask(1 << LED_FILTER_1);
+gpio_init_mask(1 << LED_FILTER_2);
+gpio_init_mask(1 << LED_FILTER_3);
+gpio_init_mask(1 << LED_FILTER_4);
+gpio_init_mask(1 << LED_NOISE_1);
+gpio_init_mask(1 << LED_NOISE_2);
+
+gpio_set_dir(LED_FILTER_1, GPIO_OUT);
+gpio_set_dir(LED_FILTER_2, GPIO_OUT);
+gpio_set_dir(LED_FILTER_3, GPIO_OUT);
+gpio_set_dir(LED_FILTER_4, GPIO_OUT);
+gpio_set_dir(LED_NOISE_1, GPIO_OUT);
+gpio_set_dir(LED_NOISE_2, GPIO_OUT);
+*/
 #ifdef __cplusplus
 }
 #endif
